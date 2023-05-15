@@ -1,5 +1,5 @@
 <app-loading *ngIf="!usuario"></app-loading>
-<div *ngIf="usuario">
+<div *ngIf="usuario" [@fadeInOnEnter]>
     <app-header (logoutAll)="logout()" [usuLogged]="usuLogged"></app-header>
     <app-hero-section [usuario]="usuario" [usuLogged]="usuLogged" [persona]="usuario.persona"></app-hero-section>
     <app-about (modificacion)="cargarUsuarios()" [usuLogged]="usuLogged" [persona]="usuario.persona"></app-about>

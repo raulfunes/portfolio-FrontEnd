@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { fadeInOnEnterAnimation, fadeOutRightAnimation } from 'angular-animations';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioService } from 'src/app/services/api/usuario.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -6,7 +7,10 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css']
+  styleUrls: ['./main.component.css'],
+  animations: [
+    fadeInOnEnterAnimation({ delay: 200 }),
+  ]
 })
 export class MainComponent {
   usuario: Usuario;
