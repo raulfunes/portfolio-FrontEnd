@@ -1,0 +1,114 @@
+/* Estudios Section */
+.estudios{
+    padding: 1rem 0 5rem 0;
+    width: 100%;
+    background-color: var(--form-input);
+}
+
+/* Seccion Titulo */
+.estudios h2{
+    margin-top: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+
+.estudios article{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+/*=============*/
+/* Estudio */
+/*Definiendo estilos para un estudio*/
+
+/* Contenedor */
+.est{
+    max-width: 50rem;
+    width: 100%;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-areas: ". fecha fecha"
+            "titulo titulo titulo"
+            "subtitulo subtitulo subtitulo"
+            "img descripcion descripcion"
+            ". botones botones";
+
+    grid-template-columns: min-content 1fr 1fr;
+    column-gap: 2rem;
+    opacity: 1;
+    transition: all .7s ease-in-out;
+    
+}
+
+/* Imagen */
+.est-logo{
+    width: 100px;
+    height: 100px;
+
+    grid-area: img;
+
+    align-self: center;
+    border-radius: 20px;
+}
+
+/* Cargo */
+.est-titulo{
+    grid-area: titulo;
+    margin-bottom: .7rem;
+}
+
+/* Empresa */
+.est-institucion{
+    grid-area: subtitulo;
+    margin-bottom: .7rem;
+}
+
+/* Descripcion */
+.est-description{
+    grid-area: descripcion;
+    font-size: .9rem;
+    opacity: .9;
+}
+
+@media screen and (max-width: 700px) {
+    .estudios h2 {
+        font-size: 1.8rem;
+    }
+
+    .est-titulo{
+        font-size: 1.3rem
+    }
+    .est-institucion{
+        font-size: 1.1rem;
+    }
+}
+
+/* Fecha */
+.est-date{
+    font-size: .8rem;
+    grid-area: fecha;
+    align-self: center;
+    justify-self: end;
+    margin: 0 0 1rem 0;
+}
+
+/* Botones */
+.est-botones{
+    grid-area: botones;
+    justify-self: end;
+    align-self: flex-end;
+}
+.est-botones button{
+    background-color: transparent;
+    font-size: 1.3rem;
+    margin: 0 .3rem;
+    color: var(--purple);
+    border: none;
+}
+.est-botones button:hover{
+    filter: brightness(0.8);
+}

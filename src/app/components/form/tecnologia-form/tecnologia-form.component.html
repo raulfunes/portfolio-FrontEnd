@@ -1,0 +1,56 @@
+<form [formGroup]="tecnologiaForm">
+
+
+
+  <mat-form-field class="est-form-link">
+    <mat-label>Imagen Link</mat-label>
+    <input class="form-input" type="text" matInput formControlName="imagen">
+  </mat-form-field>
+
+
+
+
+  <div class="flex">
+    <div class="est-logo">
+      <img src="{{tecnologiaForm.controls['imagen'].value}}" alt="">
+    </div>
+
+    <mat-form-field class="est-form-cargo">
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput formControlName="nombre" placeholder="Ingeniero">
+      <mat-error *ngIf="tecnologiaForm.controls['nombre'].hasError('required')">
+        El nombre es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+
+  <div class="habilidad-porcentaje">
+    <div>
+      <p>{{tecnologiaForm.controls['porcentaje'].value}}%</p>
+    </div>
+    <mat-progress-spinner [strokeWidth]="5" [diameter]="50" [color]="color" [mode]="mode"
+      [value]="tecnologiaForm.controls['porcentaje'].value">
+    </mat-progress-spinner>
+  </div>
+
+  <div>
+    <input minlength="1" maxlength="100" type="range" id="porcentaje" name="porcentaje" formControlName="porcentaje">
+  </div>
+
+  <div *ngIf="tecnologiaForm.controls['porcentaje'].errors && 
+    (tecnologiaForm.controls['porcentaje'].dirty || 
+    tecnologiaForm.controls['porcentaje'].touched)" class="error">
+    <div *ngIf="tecnologiaForm.controls['porcentaje'].errors['required']">
+      Porcentaje Requerido
+    </div>
+  </div>
+
+  <div>
+    <button class="btn-fill" *ngIf="!modificacion" type="submit" (click)="procesarForm()"
+      [disabled]="!acceptQuery">Añadir</button>
+    <button class="btn-fill" *ngIf="modificacion" type="submit" (click)="aceptarModificacion()"
+      [disabled]="!acceptQuery">Modificar</button>
+    <button class="btn-fill" type="submit" (click)="cancelar()" [disabled]="!acceptQuery">Cancelar</button>
+  </div>
+</form>

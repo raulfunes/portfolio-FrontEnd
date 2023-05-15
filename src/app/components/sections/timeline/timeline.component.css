@@ -1,0 +1,12 @@
+.habilidades{
+    margin-top: 3rem;
+}
+
+.habilidad{
+    width: 200px;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+    background-color: red;
+
+}

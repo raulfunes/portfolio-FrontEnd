@@ -1,0 +1,84 @@
+.about{
+    background-size: cover;
+    text-align: center;
+    padding: 0 2rem;
+
+    width: 100%;
+    max-width: 60rem;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+}
+
+.about-container{
+    background-color: var(--black2);
+}
+
+.about h2{
+    margin-top: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.about p{
+    margin-top: 2rem;
+    color: var(--white);
+}
+
+@media screen and (max-width: 700px) {
+    .about h2 {
+        font-size: 1.8rem;
+    }
+    .about p{
+        font-size: .9rem;
+    }
+}
+
+.about-title{
+    position: relative;
+}
+
+.about-edit {
+    position: absolute;
+    top: 30px;
+    right: -40px;
+
+    border: none;
+    background-color: transparent;
+    font-size: 1.3rem;
+    color: var(--purple);
+
+    transition: all .5s ease;
+}
+
+.about-edit:hover {
+    filter: brightness(.7);
+}
+
+.panel-info, .panel-edicion{
+    margin-bottom: 2rem;
+}
+
+.panel-edicion{
+    width: 100%;
+}
+
+.panel-edicion textarea{
+    width: 100%;
+    height: 20rem;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid var(--gray);
+    border-radius: 4px;
+    background-color: var(--white);
+    font-size: 16px;
+    resize: none;
+}
+
+.panel-edicion p{
+    font-size: .8rem;
+    margin: .2rem 0;
+    opacity: .6;
+}
+
+
+

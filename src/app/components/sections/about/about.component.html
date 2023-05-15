@@ -1,0 +1,27 @@
+<section id="about" class="about-container">
+  <div class="about">
+    <div class="about-title">
+      <h2>About Me</h2>
+
+      <button *ngIf="usuLogged" class="about-edit" (click)="turnEditMode()">
+        <i class="fa-solid fa-pencil"></i>
+      </button>
+    </div>
+
+
+    <div *ngIf="!editMode" [@fadeInOnEnter] class="panel-info">
+      <p *ngFor="let texto of descripcionFormateada()">{{texto}}</p>
+    </div>
+
+    <div *ngIf="editMode && usuLogged" [@fadeInOnEnter] class="panel-edicion">
+      <p>Usar -- para saltos de linea</p>
+      <textarea name="descripcion" id="descripcion" [(ngModel)]="nuevaDescripcion"></textarea>
+      <div>
+        <button class="btn-fill" (click)="editarDescripcion()" [disabled]="!acceptQuery">Aceptar</button>
+        <button class="btn-fill" (click)="turnEditMode()" [disabled]="!acceptQuery">Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+
+</section>

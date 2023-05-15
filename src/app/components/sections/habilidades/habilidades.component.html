@@ -1,0 +1,31 @@
+<section id="habilidades" class="habilidades">
+  <h2>Habilidades</h2>
+  <button *ngIf="usuLogged" (click)="turnAddMode()" class="btn-fill">Añadir</button>
+  <app-tecnologia-form class="mt-5" *ngIf="addMode && usuLogged" [@fadeInOnEnter]
+    (cerrarFormulario)="cerrarFormulario($event)" [usuario]="usuario" [tecModificada]="tecModificada"
+    [modificacion]="false"></app-tecnologia-form>
+  <div class="habilidades-contenedor mt-5">
+    <article *ngFor="let habilidad of tecnologias">
+      <div *ngIf="habilidad.id != idEditing" [@fadeInOnEnter] class="habilidad">
+        <div class="habilidad-porcentaje">
+          <div>
+            <p>{{habilidad.porcentaje}}%</p>
+          </div>
+          <mat-progress-spinner [strokeWidth]="5" [diameter]="50" [color]="color" [mode]="mode"
+            [value]="habilidad.porcentaje">
+          </mat-progress-spinner>
+        </div>
+        <div class="habilidad-data">
+          <img src="{{habilidad.imagen}}" alt="Imagen {{habilidad.nombre}}">
+          <p>{{habilidad.nombre}}</p>
+        </div>
+        <button *ngIf="usuLogged" (click)="modificarTecnologia(habilidad)" class="habilidad-edit"><i
+            class="fa-solid fa-pencil"></i></button>
+
+      </div>
+      <app-tecnologia-form *ngIf="(habilidad.id == idEditing) && usuLogged" [@fadeInOnEnter]
+        (cerrarFormulario)="cerrarFormulario($event)" [usuario]="usuario" [tecModificada]="tecModificada"
+        [modificacion]="true"></app-tecnologia-form>
+    </article>
+  </div>
+</section>

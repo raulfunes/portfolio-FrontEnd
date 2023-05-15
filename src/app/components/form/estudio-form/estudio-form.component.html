@@ -1,0 +1,62 @@
+<form [formGroup]="estudioForm" class="est-form">
+  <mat-form-field class="est-form-cargo">
+    <mat-label>Titulo</mat-label>
+    <input type="text" matInput formControlName="titulo" placeholder="Ingeniero">
+    <mat-error *ngIf="estudioForm.controls['titulo'].hasError('required')">
+      El titulo es <strong>requerido</strong>
+    </mat-error>
+    <mat-error *ngIf="estudioForm.controls['titulo'].hasError('minlength')">
+      Titulo <strong>muy corto</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="est-form-empresa">
+    <mat-label>Institucion</mat-label>
+    <input type="text" matInput formControlName="institucion" placeholder="Universidad">
+    <mat-error *ngIf="estudioForm.controls['institucion'].hasError('required')">
+      La institucion es <strong>requerida</strong>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="est-form-descripcion">
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput formControlName="descripcion"></textarea>
+  </mat-form-field>
+
+
+  <mat-form-field class="est-form-link">
+    <mat-label>Imagen Link</mat-label>
+    <input class="form-input" type="text" matInput formControlName="imagen">
+  </mat-form-field>
+
+  <div class="est-logo">
+    <img src="{{estudioForm.controls['imagen'].value}}" alt="">
+  </div>
+
+  <mat-form-field appearance="fill" class="est-form-date">
+    <mat-label>Ingresa un rango de fechas</mat-label>
+    <mat-date-range-input [formGroup]="estudioForm" [rangePicker]="picker">
+      <input matStartDate formControlName="fecha_inicio" placeholder="Fecha de inicio">
+      <input matEndDate formControlName="fecha_fin" placeholder="Fecha de finalizacion">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+    <mat-error *ngIf="estudioForm.controls['fecha_inicio'].hasError('required')">La fecha de inicio es requerida
+    </mat-error>
+    <mat-error *ngIf="estudioForm.controls['fecha_inicio'].hasError('matStartDateInvalid')">
+      La fecha de inicio es invalida
+    </mat-error>
+    <mat-error *ngIf="estudioForm.controls['fecha_fin'].hasError('matEndDateInvalid')">
+      La fecha de fin es invalida
+    </mat-error>
+  </mat-form-field>
+
+  <div class="est-form-botones">
+    <button class="btn-fill" *ngIf="!modificacion" type="submit" (click)="procesarForm()"
+      [disabled]="!acceptQuery">Añadir</button>
+    <button class="btn-fill" *ngIf="modificacion" type="submit" (click)="aceptarModificacion()"
+      [disabled]="!acceptQuery">Modificar</button>x
+    <button class="btn-fill" type="submit" (click)="cancelar()" [disabled]="!acceptQuery">Cancelar</button>
+  </div>
+</form>

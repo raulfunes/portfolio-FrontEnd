@@ -1,0 +1,16 @@
+.proyecto-form{
+    width: 100%;
+    margin: 2rem 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.proyecto-form > div{
+    width: 100%;
+    max-width: 30rem;
+}
+
+mat-form-field{
+    width: 100%;
+}

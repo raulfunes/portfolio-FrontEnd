@@ -1,1 +1,189 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root{
+    --black: #242629;
+    --black2: #141414;
+    --gray: #ADB5C0;
+    --gray2: #d9d9d955;
+    --white: #fffffe;
+    --paragraph: #94a1b2;
+    --purple: #7f5af0;
+    --card-bg: #16161a;
+    --card-headline: #fffffe;
+    --card-paragraph: #94a1b2;
+
+    --nw-bg-color: #fffffe;
+    --form-input: #16161a;
+    --lbl-plc: #fffffe;
+    --fornm-btn: #7f5af0;
+    --form-btn-txt: #fffffe;
+    --tertiary: #2cb67d;
+
+    --font-text: 'Inter', sans-serif;
+    --font-titles: 'Syne', sans-serif;
+}
+
+html, body{
+    height: 100%;
+}
+
+
+body{
+    background-color: var(--black);
+    font-family: var(--font-text);
+    overflow-x: hidden;
+}
+
+
+.block{
+    display: block;
+}
+
+.mh{
+    height: 100%;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.navbar{
+    padding: 0 10px;
+}
+
+ul{
+    list-style: none;
+}
+
+/* Text */
+h1, h2, h3, h4, h5{
+    color: var(--white);
+    font-family: var(--font-titles);
+}
+
+p{
+    font-family: var(--font-text);
+    color: var(--paragraph);
+}
+
+a{
+    font-family: var(--font-text);
+    color: var(--paragraph)
+}
+
+h2{
+    text-decoration: underline;
+}
+h1, h2{
+    font-size: 2.5rem;
+}
+label{
+    color: white;
+}
+
+/* Colors Text */
+.dark-text{
+    color: black;
+}
+
+.light-text{
+    color: white;
+}
+
+.tertiary-text{
+    color: var(--tertiary);
+}
+
+.dark-section{
+    color: white;
+    background-color: #1b1b32;
+}
+
+.light-section{
+    color: black;
+    background-color: white;
+}
+
+.section-title{
+    font-size: 2rem;
+    padding: 15px 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.section-description{
+    font-size: 1.2rem;
+    color: #584e4e;
+}
+
+.section-text{
+    font-size: 1.2rem;
+
+}
+
+.btn-info{
+    font-size: 1.1rem;
+    margin: 20px;
+}
+
+.pencil{
+    background-color: var(--black);
+    color: #7f5af0;
+    border-radius: 50%;
+
+    opacity: .5;
+
+    transition: all .2s ease;
+}
+
+.pencil:hover{
+    opacity: 1;
+}
+
+/*Boton */
+
+.btn-fill{
+    text-decoration: none;
+    background: none;
+    color: var(--gray);
+    border: 2px solid var(--purple);
+    text-transform: uppercase;
+    min-width: 8rem;
+    padding: 5px 20px;
+    margin: 10px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: color 0.4s linear; 
+}
+
+.btn-fill:disabled{
+    filter: grayscale(1);
+}
+
+.btn-fill:hover{
+    color: var(--white);
+}
+
+.btn-fill::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: var(--purple);
+    transition: transform 0.5s;
+    transform-origin: 0 0;
+    transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    transform: scaleX(0);
+}
+
+.btn-fill:hover::before{
+    transform: scaleX(1);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

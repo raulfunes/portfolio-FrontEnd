@@ -1,0 +1,133 @@
+.header{
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 300;
+    position: absolute;
+    
+    left: 2rem;
+    right: 2rem;
+}
+
+.flex{
+    display: flex;
+}
+
+.logo{
+    margin: 2rem;
+}
+
+.logo img{
+    width: 10rem;
+}
+
+.primary-navigation{
+    height: 100%;
+    gap: 1rem; 
+}
+
+.toogle{
+    display: none;
+}
+
+.toogle i{
+    font-size: 28px;
+    color: white;
+}
+
+.login{
+    color: var(--gray);
+    opacity: .5;
+    transition: all .3s ease;
+}
+
+.login:hover{
+    cursor: pointer;
+    color: var(--purple);
+    opacity: 1;
+    filter: brightness(.8);
+}
+
+@media screen and (min-width: 740px){
+    .primary-navigation{
+        transform: translateX(0%) !important;
+    }
+}
+
+@media screen and (max-width: 740px){
+    .primary-navigation{
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        inset: 0 0 0 0%;
+        z-index: 1000;
+        padding: min(30vh, 15rem) 1rem;
+        background-color: hsl(0, 0%, 0% , 0.55);
+        backdrop-filter: blur(2rem);
+        font-size: 1.3rem;
+    }
+
+    .toogle{
+        display: block;
+        position: fixed;
+        right:20px;
+        z-index: 9999;
+        border-radius: 20px;
+        background-color: var(--black2);
+        border: 0;
+    }
+
+    .login{
+        background-color: var(--purple);
+        padding: 1rem;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 2.5rem;
+        left: 2rem;
+        position: absolute;
+        transition: all .3s ease;
+    }
+
+    .login:hover{
+        color: var(--black2);
+    }
+}
+
+/* Barra de navegacion */
+.navbar{
+    padding: 1rem 0;
+}
+
+.navbar-collapse{
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-link{
+    color: var(--gray);
+}
+
+.nav-link:hover{
+    cursor: pointer;
+    color: var(--white);
+}
+
+
+.nav-link::after{
+    content: '';
+    height: 2px;
+    width: 0%;
+    background-color: var(--purple);
+    display: flex;
+    justify-content: center;
+    transition: .5s ease-in-out;
+}
+
+.nav-link:hover::after{
+    width: 100%;
+}

@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div>
+    <label for="username">User: </label>
+    <input (input)="reEnter()" type="text" name="username" formControlName="username">
+    <div class="error" *ngIf="username.touched && username.invalid">
+      <p *ngIf="username.errors.required">El user no puede estar vacio</p>
+    </div>
+  </div>
+  <div>
+    <label for="password">Password: </label>
+    <input (input)="reEnter()" type="password" formControlName="password">
+    <div class="error" *ngIf="password.touched && password.invalid">
+      <p *ngIf="password.errors.required">La contraseña no puede estar vacia</p>
+      <p *ngIf="password.errors.minlength || password.errors.maxlength">La contraseña debe tener entre 5 y 20 caracteres
+      </p>
+    </div>
+  </div>
+  <div class="button">
+    <button type="submit">Iniciar Sesion</button>
+    <div class="error" *ngIf="invalidUser">
+      <p>Contraseña o Usuario incorrencto</p>
+    </div>
+  </div>
+</form>

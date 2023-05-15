@@ -1,0 +1,118 @@
+/* Experiencia Section */
+.experiencia {
+    padding: 1rem 0 5rem 0;
+    width: 100%;
+    background-color: var(--black);
+}
+
+/* Seccion Titulo */
+.experiencia h2 {
+    margin-top: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+
+
+.experiencia article {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+/*=============*/
+/* Experincia */
+/*Definiendo estilos para una experiencia*/
+
+/* Contenedor */
+.exp {
+    max-width: 50rem;
+    width: 100%;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-areas:
+        ". fecha fecha"
+        "titulo titulo titulo"
+        "subtitulo subtitulo subtitulo"
+        "img descripcion descripcion"
+        ". botones botones";
+
+    grid-template-columns: min-content 1fr 1fr;
+    column-gap: 2rem;
+    opacity: 1;
+    transition: all 0.7s ease-in-out;
+}
+
+/* Imagen */
+.exp-logo {
+    width: 100px;
+    height: 100px;
+
+    grid-area: img;
+
+    align-self: center;
+    border-radius: 20px;
+}
+
+/* Cargo */
+.exp-cargo {
+    grid-area: titulo;
+    margin-bottom: .5rem;
+}
+
+/* Empresa */
+.exp-empresa {
+    grid-area: subtitulo;
+    margin-bottom: .5rem;
+}
+
+
+@media screen and (max-width: 700px) {
+    .experiencia h2 {
+        font-size: 1.8rem;
+    }
+
+    .est-cargo {
+        font-size: 1.3rem;
+    }
+
+    .est-empresa {
+        font-size: 1.1rem;
+    }
+}
+
+/* Descripcion */
+.exp-description {
+    grid-area: descripcion;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Fecha */
+.exp-date {
+    font-size: 0.8rem;
+    grid-area: fecha;
+    align-self: center;
+    justify-self: end;
+    margin: 0 0 1rem 0;
+}
+
+/* Botones */
+.exp-botones {
+    grid-area: botones;
+    justify-self: end;
+    align-self: flex-end;
+}
+
+.exp-botones button {
+    background-color: transparent;
+    font-size: 1.3rem;
+    margin: 0 0.3rem;
+    color: var(--purple);
+    border: none;
+}
+
+.exp-botones button:hover {
+    filter: brightness(0.8);
+}

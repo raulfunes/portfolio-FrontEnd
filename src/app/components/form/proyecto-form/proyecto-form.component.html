@@ -1,0 +1,79 @@
+<form class="proyecto-form" [formGroup]="proyectoForm">
+
+  <div>
+    <mat-form-field class="">
+      <mat-label>Titulo del Proyecto</mat-label>
+      <input type="text" matInput formControlName="titulo" placeholder="Portfolio">
+      <mat-error *ngIf="proyectoForm.controls['titulo'].hasError('required')">
+        El titulo es <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+
+  <div>
+    <mat-form-field class="">
+      <mat-label>Subtitulo Link</mat-label>
+      <input type="text" matInput formControlName="sub_titulo">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="">
+      <mat-label>Descripcion</mat-label>
+      <input type="text" matInput formControlName="descripcion" placeholder="Proposito del proyecto">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="">
+      <mat-label>Imagen Link</mat-label>
+      <input type="text" matInput formControlName="imagen">
+      <mat-error *ngIf="proyectoForm.controls['imagen'].hasError('pattern')">
+        El link no es <strong>valido.</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+
+
+  <div>
+    <mat-form-field class="">
+      <mat-label>Link Repositorio</mat-label>
+      <input type="text" matInput formControlName="link_repo">
+      <mat-error *ngIf="proyectoForm.controls['link_repo'].hasError('required')">
+        El link es <strong>requerido.</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="">
+      <mat-label>Link Deploy</mat-label>
+      <input type="text" matInput formControlName="link_deploy">
+      <mat-error *ngIf="proyectoForm.controls['link_deploy'].hasError('required')">
+        El link es <strong>requerido.</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Tecnologias</mat-label>
+      <mat-select formControlName="tecnologias" multiple>
+        <mat-option *ngFor="let tecnologia of usuario.tecnologias"
+          [value]="tecnologia">{{tecnologia.nombre}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+
+
+  <div>
+    <button class="btn-fill" *ngIf="!modificacion" type="submit" (click)="procesarForm()"
+      [disabled]="!acceptQuery">Añadir</button>
+    <button class="btn-fill" *ngIf="modificacion" type="submit" (click)="aceptarModificacion()"
+      [disabled]="!acceptQuery">Modificar</button>
+    <button class="btn-fill" type="submit" (click)="cancelar()" [disabled]="!acceptQuery">Cancelar</button>
+  </div>
+</form>

@@ -1,0 +1,47 @@
+<section id="proyectos" class="proyectos">
+  <h2>Proyectos</h2>
+  <button *ngIf="usuLogged" (click)="turnAddMode()" class="btn-fill">Añadir</button>
+  <app-proyecto-form *ngIf="addMode && usuLogged" [@fadeInOnEnter] (cerrarFormulario)="cerrarFormulario($event)"
+    [usuario]="usuario" [proyectoModificado]="proyectoModificado" [modificacion]="false" class="mt-5">
+  </app-proyecto-form>
+  <div class="mt-5">
+    <article *ngFor="let proyecto of proyectos" class="proyecto-container">
+      <div [@fadeInOnEnter] *ngIf="proyecto.id != idEditing" class="proyecto">
+        <div class="proyecto-bg">
+          <img src="{{proyecto.imagen}}" alt="">
+        </div>
+        <div class="proyecto-info">
+          <h3>{{proyecto.titulo}}</h3>
+          <h4>{{proyecto.sub_titulo}}</h4>
+          <p>{{proyecto.descripcion}}</p>
+          <div class="proyecto-tecnologias">
+            <div class="tecnologia-pill" *ngFor="let tecnologia of proyecto.tecnologias">
+              <img src="{{tecnologia.imagen}}" alt="{{tecnologia.nombre}}">
+              <p>{{tecnologia.nombre}}</p>
+            </div>
+          </div>
+          <div class="proyecto-links">
+            <a class="btn-fill" target="_blank" href="{{proyecto.link_repo}}">GITHUB <i
+                class="fa-brands fa-github"></i></a>
+            <a class="btn-fill" target="_blank" href="{{proyecto.link_deploy}}">DEPLOY <i
+                class="fa-solid fa-person-running"></i></a>
+          </div>
+
+
+          <div *ngIf="usuLogged" class="proyecto-botones">
+            <button (click)="eliminarProyecto(proyecto)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            <button (click)="modificarProyecto(proyecto)">
+              <i class="fa-solid fa-pencil"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <app-proyecto-form [@fadeInOnEnter] *ngIf="(idEditing == proyecto.id) && usuLogged"
+        (cerrarFormulario)="cerrarFormulario($event)" [usuario]="usuario" [proyectoModificado]="proyectoModificado"
+        [modificacion]="true"></app-proyecto-form>
+    </article>
+  </div>
+
+</section>

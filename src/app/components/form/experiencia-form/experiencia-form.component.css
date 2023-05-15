@@ -1,0 +1,68 @@
+/*=============*/
+/* Experincia */
+/*Definiendo estilos para la modificacion*/
+
+.exp-form{
+    max-width: 60rem;
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-areas:"titulo titulo fecha fecha"
+                        "subtitulo subtitulo . ."
+                        "img descripcion descripcion descripcion"
+                        "link-img link-img  botones botones";
+
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Imagen */
+.exp-logo{
+    grid-area: img;
+
+    align-self: center;
+}
+.exp-logo img{
+    width: 100px;
+    height: 100px;
+
+
+    border-radius: 20px;
+}
+
+/* Cargo */
+.exp-form-cargo{
+    grid-area: titulo;
+}
+
+/* Empresa */
+.exp-form-empresa{
+    grid-area: subtitulo;
+}
+
+/* Descripcion */
+.exp-form-descripcion{
+    grid-area: descripcion;
+    font-size: .8rem;
+}
+
+/* Fecha */
+.exp-form-date{
+    font-size: .8rem;
+    grid-area: fecha;
+    align-self: center;
+}
+
+/* Imagen Link */
+.exp-form-link{
+    grid-area: link-img;
+}
+
+.exp-form-botones{
+    grid-area: botones;
+    justify-self: end;
+    align-self: flex-end;
+}
+
+mat-error{
+    font-size: .7rem;
+}

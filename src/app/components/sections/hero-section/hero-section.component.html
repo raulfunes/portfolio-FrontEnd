@@ -1,0 +1,15 @@
+<section class="hero">
+  <div class="hero-body">
+    <h2>Hola, soy {{persona.nombre}} {{persona.apellido}}</h2>
+    <h1>Soy un Web Developer</h1>
+    <div class="hero-links">
+      <a target="_blank" href="{{usuario.github}}"><i class="fa-brands fa-github"></i></a>
+      <a target="_blank" href="{{usuario.linkedn}}"><i class="fa-brands fa-linkedin"></i></a>
+      <a (click)="scroll('#footer')"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+  </div>
+  <div class="hero-footer">
+    <img src="{{persona.img}}" alt="Imagen Perfil">
+    <div></div>
+  </div>
+</section>

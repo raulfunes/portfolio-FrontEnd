@@ -1,0 +1,30 @@
+<section id="estudios" class="estudios">
+  <h2>Estudios</h2>
+  <button *ngIf="usuLogged" (click)="turnAddMode()" class="btn-fill">Añadir</button>
+  <app-estudio-form class="mt-5" *ngIf="addMode && usuLogged" [@fadeInOnEnter]
+    (cerrarFormulario)="cerrarFormulario($event)" [usuario]="usuario" [estModificado]="estModificado"
+    [modificacion]="false"></app-estudio-form>
+  <div class="mt-5 w-100">
+    <article *ngFor="let estudio of estudios">
+      <div *ngIf="estudio.id != idEditing" [@fadeInOnEnter] class="est">
+        <img src={{estudio.imagen}} alt="" class="est-logo">
+        <h3 class="est-titulo">{{estudio.titulo}}</h3>
+        <h4 class="est-institucion">{{estudio.institucion}}</h4>
+        <p class="est-date">{{getYear(estudio.fecha_inicio)}} - {{getYear(estudio.fecha_fin)}}</p>
+        <p class="est-description">{{estudio.descripcion}}</p>
+        <div class="est-botones" *ngIf="usuLogged">
+          <button (click)="eliminarEstudio(estudio)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          <button (click)="modificarEstudio(estudio)">
+            <i class="fa-solid fa-pencil"></i>
+          </button>
+        </div>
+      </div>
+      <app-estudio-form *ngIf="(idEditing == estudio.id) && usuLogged" [@fadeInOnEnter]
+        (cerrarFormulario)="cerrarFormulario($event)" [usuario]="usuario" [estModificado]="estModificado"
+        [modificacion]="true"></app-estudio-form>
+    </article>
+  </div>
+
+</section>

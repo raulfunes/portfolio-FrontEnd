@@ -1,0 +1,30 @@
+<section id="experiencias" class="experiencia">
+  <h2>Experiencias</h2>
+  <button *ngIf="usuLogged" (click)="turnAddMode()" class="btn-fill">Añadir</button>
+  <app-experiencia-form class="mt-5" *ngIf="addMode && usuLogged" [@fadeInOnEnter]
+    (cerrarFormulario)=" cerrarFormulario($event)" [usuario]="usuario" [expModificada]="expModificada"
+    [modificacion]="false"></app-experiencia-form>
+  <div class="mt-5 w-100">
+    <article *ngFor="let experiencia of experiencias">
+      <div *ngIf="experiencia.id != idEditing" [@fadeInOnEnter] class="exp">
+        <img src={{experiencia.imagen}} alt="" class="exp-logo">
+        <h3 class="exp-cargo">{{experiencia.cargo}}</h3>
+        <h4 class="exp-empresa">{{experiencia.empresa}}</h4>
+        <p class="exp-date">{{getYear(experiencia.fecha_inicio)}} - {{getYear(experiencia.fecha_fin)}}</p>
+        <p class="exp-description">{{experiencia.descripcion}}</p>
+        <div class="exp-botones" *ngIf="usuLogged">
+          <button (click)="eliminarExperiencia(experiencia)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+          <button (click)="modificarExperiencia(experiencia)">
+            <i class="fa-solid fa-pencil"></i>
+          </button>
+        </div>
+      </div>
+      <app-experiencia-form *ngIf="(experiencia.id == idEditing) && usuLogged" [@fadeInOnEnter]
+        (cerrarFormulario)="cerrarFormulario($event)" [usuario]="usuario" [expModificada]="expModificada"
+        [modificacion]="true"></app-experiencia-form>
+    </article>
+  </div>
+
+</section>

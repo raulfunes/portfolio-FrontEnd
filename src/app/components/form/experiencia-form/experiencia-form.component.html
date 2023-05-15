@@ -1,0 +1,65 @@
+<form [formGroup]="experienciaForm" class="exp-form">
+  <mat-form-field class="exp-form-cargo">
+    <mat-label>Cargo</mat-label>
+    <input type="text" matInput formControlName="cargo" placeholder="FullStack Developer">
+    <mat-error *ngIf="experienciaForm.controls['cargo'].hasError('required')">
+      El cargo es <strong>requerido</strong>
+    </mat-error>
+    <mat-error *ngIf="experienciaForm.controls['cargo'].hasError('minlength')">
+      Cargo <strong>muy corto</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="exp-form-empresa">
+    <mat-label>Empresa</mat-label>
+    <input type="text" matInput formControlName="empresa" placeholder="Argentina Programa">
+    <mat-error *ngIf="experienciaForm.controls['empresa'].hasError('required')">
+      La empresa es <strong>requerida</strong>
+    </mat-error>
+  </mat-form-field>
+
+
+  <mat-form-field class="exp-form-descripcion">
+    <mat-label>Descripcion</mat-label>
+    <textarea matInput formControlName="descripcion"></textarea>
+  </mat-form-field>
+
+
+  <mat-form-field class="exp-form-link">
+    <mat-label>Imagen Link</mat-label>
+    <input class="form-input" type="text" matInput formControlName="imagen">
+    <mat-error *ngIf="experienciaForm.controls['imagen'].hasError('pattern')">
+      El link no es valido
+    </mat-error>
+  </mat-form-field>
+
+  <div class="exp-logo">
+    <img src="{{experienciaForm.controls['imagen'].value}}" alt="">
+  </div>
+
+  <mat-form-field appearance="fill" class="exp-form-date">
+    <mat-label>Ingresa un rango de fechas</mat-label>
+    <mat-date-range-input [formGroup]="experienciaForm" [rangePicker]="picker">
+      <input matStartDate formControlName="fecha_inicio" placeholder="Fecha de inicio">
+      <input matEndDate formControlName="fecha_fin" placeholder="Fecha de finalizacion">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+    <mat-error *ngIf="experienciaForm.controls['fecha_inicio'].hasError('required')">La fecha de inicio es requerida
+    </mat-error>
+    <mat-error *ngIf="experienciaForm.controls['fecha_inicio'].hasError('matStartDateInvalid')">
+      La fecha de inicio es invalida
+    </mat-error>
+    <mat-error *ngIf="experienciaForm.controls['fecha_fin'].hasError('matEndDateInvalid')">
+      La fecha de fin es invalida
+    </mat-error>
+  </mat-form-field>
+
+  <div class="exp-form-botones">
+    <button class="btn-fill" *ngIf="!modificacion" type="submit" (click)="procesarForm()"
+      [disabled]="!acceptQuery">Añadir</button>
+    <button class="btn-fill" *ngIf="modificacion" type="submit" (click)="aceptarModificacion()"
+      [disabled]="!acceptQuery">Modificar</button>
+    <button class="btn-fill" type="submit" (click)="cancelar()" [disabled]="!acceptQuery">Cancelar</button>
+  </div>
+</form>
