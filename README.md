@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.4.
@@ -25,3 +26,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+=======
+<h1>Portafolio personal de Raul Funes</h1>
+
+Parte FrontEnd
+
+Realizado como trabajo integrador del curso <bold> #YoProgramo 2022-2023 </bold>
+>>>>>>> e9ffd55d3ca71ab65e9d5d3f0543e01bdf7a654f
