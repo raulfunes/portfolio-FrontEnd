@@ -185,5 +185,5 @@ label{
     transform: scaleX(1);
 }
 
-html, body { overflow-x: hidden; height: 100%; }
+html, body { overflow-x: hidden; height: 100%; position: relative}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
